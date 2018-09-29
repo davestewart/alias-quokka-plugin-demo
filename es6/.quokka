@@ -3,6 +3,6 @@
   "plugins": ["alias-quokka-plugin"],
   "alias": {
     "@/": "./src/",
-    "utils": "./src/utils"
+    "@/classes/": "./src/classes/"
   }
 }

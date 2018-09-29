@@ -1,25 +1,36 @@
-# Quokka / ES6 / Scratch file demo
+# Quokka Alias demo
 
-## Abstract
+## Intro
 
-Demo project to test Quokka local ES6 imports in a scratch file.
+### Abstract
 
-To enable Quokka to run local files, you need 4 things:
+This is a demo project to test aliased imports in Quokka using the Alias Quokka Plugin.
+ 
+The project is split into 3 sub-folders, for [ES5](./es5), [ES6](./es6) and [TypeScript](./ts) as each language's NPM dependencies are different, and need to be set up for Quokka to work.
 
-- Quokka to be installed
+Each sub-folder is its own root repository, and you should open these folders in your IDE of choice and test Quokka there.
+
+
+### Prerequisites
+
+To enable Quokka to import and run local files via alias, you need 4 things:
+
+- for Quokka to be installed globally
 - the Quokka Alias plugin to be installed in your project
 - a Quokka config file in your project root
 - alias definitions in the config file
 
 
-## Setup
+## Usage
+
+To use the plugin in your own project, follow the steps below.
 
 #### Quokka
 
 Install Quokka using the instructions at [Quokka JS](https://quokkajs.com).
 
 
-#### Quokka Alias plugin
+#### Plugin
 
 If the PR to the original plugin has been merged, you can install via NPM:
 
@@ -27,20 +38,20 @@ If the PR to the original plugin has been merged, you can install via NPM:
 npm install alias-quokka-plugin
 ```
 
-Otherwise, install from Dave's GitHub:
+Otherwise, install from the GitHub fork:
 
 ```
 npm install --save-dev davestewart/alias-quokka-plugin#master
 ```
 
-#### Quokka config file
+#### Config
 
-Copy the `.quokka` configuration file to the root of your project.
+Copy or create a `.quokka` configuration file in the root of your project.
 
 
-#### Alias configuration
+#### Aliases
 
-Add aliases to the `alias` section of the file:
+Add aliases to the `alias` section of the file, for example:
 
 ```
 {
@@ -48,77 +59,43 @@ Add aliases to the `alias` section of the file:
   "plugins": ["alias-quokka-plugin"],
   "alias": {
     "@/": "./src/",
-    "utils": "./src/utils"
+    "@/classes/": "./src/classes/"
   }
 }
 ```
 
+Note that the `@` character is a convention, not a requirement.
+
 ## Demo
 
-With all that set up, create a new scratch file in Webstorm.
+See the individual sub-folders for working examples for:
 
-Add the following code, which imports some local dependencies, and tests them:
-
-```js
-import greeting from '@/greeting'
-import { foo } from 'utils'
-
-console.log(greeting)
-foo()
-```
-
-Run Quokka using the panel or right-clicking and selecting "Start Quokka".
-
-You should see the text `hello world` next to the `console.log` and the Quokka console should display the following output:
-
-```
-Quokka #3 (node: v8.11.3, babel: v6.26.3, plugins: alias-quokka-plugin)
-
-hello world at _greeting2.default quokka.es6:4:0
-
-running foo ! 
-```
+- [ES5](./es5)
+- [ES6](./es6)
+- [TypeScript](./ts)
 
 
 ## Troubleshooting
-
-In your own project, you may get errors, likely to do with paths or ES6 compilation
-
-### Paths
 
 If aliases are not correctly set up, you will get errors regarding finding files.
 
 If the path identified in the error is **the same** as the path in the import, then it means a matching alias was not found, so the plugin was not invoked:
 
 ```js
-import bar from 'foo/bar'
+import bar from '@/foo/bar'
 ```
 ```
-> Cannot find module 'foo/bar'
+> Cannot find module '@/foo/bar'
 ```
 
 If the alias was resolved successfully, but your path is incorrect, then Quokka Alias will warn you:
 
 ```js
-import bar from '@/xxx'
+import bar from '@/classes/xxx'
 ```
 ```
-> Cannot resolve module "./src/xxx" via aliased path "@/xxx"
+> Cannot resolve module "./src/classes/xxx" via aliased path "@/classes/xxx"
 ```
-
-#### ES6
-
-If you're using ES6 and Babel is not set up in your local project, you'll get some confusing error messages.
-
-You're importing an ES6 module without ES6 support (via Babel), the compiler doesn't know what to do with the word `import`:.
-
-```
-> Unexpected token import
-```
-
-Either export your modules using the `module.exports` format or set up for ES6.
-
-There are various other error outputs, but it should become apparent reasonably quickly if the errors are plugin related, or babel related.
 
 
 ## References
@@ -129,6 +106,3 @@ There are various other error outputs, but it should become apparent reasonably 
 - Original plugin<br>
   https://github.com/Gozala/alias-quokka-plugin
 
-- Sample ES6 project used to create this repo<br>
-  https://github.com/vmasto/express-babel
-  

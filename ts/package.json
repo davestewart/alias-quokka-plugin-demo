@@ -1,0 +1,18 @@
+{
+  "name": "alias-quokka-plugin-ts-demo",
+  "version": "1.0.0",
+  "description": "Demo project to test TypeScript aliased imports in a scratch file, using the Quokka Alias plugin",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^10.11.2",
+    "alias-quokka-plugin": "in ",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.1"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "babel": true,
+  "plugins": ["alias-quokka-plugin"],
+  "alias": {
+    "@/": "./src/",
+    "@/classes/": "./src/classes/"
+  }
+}

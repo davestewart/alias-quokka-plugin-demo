@@ -1,0 +1,11 @@
+{
+  "name": "alias-quokka-plugin-es5-demo",
+  "version": "1.0.0",
+  "description": "Demo project to test ES5 aliased imports in a scratch file, using the Quokka Alias plugin",
+  "author": "Dave Stewart",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "alias-quokka-plugin": "github:davestewart/alias-quokka-plugin#master"
+  }
+}
