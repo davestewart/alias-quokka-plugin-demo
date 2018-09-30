@@ -2,7 +2,9 @@
   "babel": true,
   "plugins": ["alias-quokka-plugin"],
   "alias": {
-    "@/": "./src/",
-    "@/classes/": "./src/classes/"
+    "import": {
+      "file": "tsconfig.json",
+      "node": "compilerOptions.paths"
+    }
   }
 }

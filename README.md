@@ -6,7 +6,12 @@
 
 This is a demo project to test aliased imports in Quokka using the Alias Quokka Plugin.
  
-The project is split into 3 sub-folders, for [ES5](./es5), [ES6](./es6) and [TypeScript](./ts) as each language's NPM dependencies are different, and need to be set up for Quokka to work.
+The project is split into sub-folders to demo features, as each language's NPM dependencies are different, and need to be set up for Quokka to work:
+
+- [ES5](./es5)
+- [ES6](./es6)
+- [ES6 (with Webpack import)](./es6-webpack)
+- [TypeScript (with tsconfig import)](./ts)
 
 Each sub-folder is its own root repository, and you should open these folders in your IDE of choice and test Quokka there.
 

@@ -11,7 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^10.11.2",
-    "alias-quokka-plugin": "in ",
+    "alias-quokka-plugin": "github:davestewart/alias-quokka-plugin#external-aliases",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.1"
   }

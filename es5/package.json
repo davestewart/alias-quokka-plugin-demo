@@ -6,6 +6,6 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "alias-quokka-plugin": "github:davestewart/alias-quokka-plugin#master"
+    "alias-quokka-plugin": "github:davestewart/alias-quokka-plugin#external-aliases"
   }
 }

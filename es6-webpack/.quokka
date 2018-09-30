@@ -2,9 +2,9 @@
   "babel": true,
   "plugins": ["alias-quokka-plugin"],
   "alias": {
-    "aliases": {
-      "@/": "./src/",
-      "@/classes/": "./src/classes/"
+    "import": {
+      "file": "webpack.config.js",
+      "node": "resolve.alias"
     }
   }
 }
